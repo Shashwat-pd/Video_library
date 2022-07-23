@@ -7,7 +7,7 @@ from django.core.exceptions import PermissionDenied, ValidationError
 from django.views.decorators.csrf import csrf_exempt
 
 from moviepy.editor import *
-from main.utils.validators import validators
+from main.utils import validators, get_size, get_duration
 
 
 # Create your views here.
@@ -33,14 +33,14 @@ def upload_video(request):
 
     if request.method == "POST":
         if 'file' not in request.POST:
-            return HttpResponse('Bad POST Parameters. Please use "file" key')
+            return JsonResponse('Bad POST Parameters. Please use "file" key')
         file = request.FILES['file']
         if not file:
             return HttpResponse('file field cannot be empty value')
 
 
-        duration = VideoFileClip(file.name).duration
-        size = os.path.getsize(file.name)  
+        duration = get_duration(file)
+        size = get_size(file) 
         type = file.name.split('.')[-1]
 
 
