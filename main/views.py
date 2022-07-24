@@ -6,8 +6,8 @@ from .models import Video
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.views.decorators.csrf import csrf_exempt
 
-from moviepy.editor import *
 from main.utils import validators, get_size, get_duration
+from django.conf import settings
 
 
 # Create your views here.
@@ -38,6 +38,8 @@ def upload_video(request):
         if not file:
             return HttpResponse('file field cannot be empty value')
 
+        print(file)
+        print(f'{settings.MEDIA_ROOT} \ {file.name}')
 
         duration = get_duration(file)
         size = get_size(file) 

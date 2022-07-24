@@ -1,5 +1,6 @@
 import os
 from moviepy.editor import VideoFileClip
+from django.conf import settings
 
 allowed_extension = ['mp4','mkv']
 
@@ -10,15 +11,15 @@ def validators(file_name,duration,size, extension):
     if duration > 10*60:
         print('Duration too long')
         return False
-    if size>1:
+    if size>10**9:
         print('File too large')
         return False
     return True
 
 def get_size(file):
-    size = os.path.getsize(file.name)
+    size = os.path.getsize(f'{settings.MEDIA_ROOT}\{file.name}')
     return size
 
 def get_duration(file):
-    duration = VideoFileClip(file.name).duration
+    duration = VideoFileClip(f'{settings.MEDIA_ROOT}\{file.name}').duration
     return duration
