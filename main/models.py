@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from re import T
 from django.db import models
 from django.forms import FileField
@@ -11,3 +12,6 @@ class Video(models.Model):
 
     def __str__(self):
         return self.file.name
+
+class TemproraryFile(models.Model):
+    file = models.FileField(null=True, blank=True)

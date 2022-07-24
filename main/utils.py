@@ -21,5 +21,5 @@ def get_size(file):
     return size
 
 def get_duration(file):
-    duration = VideoFileClip(f'{settings.MEDIA_ROOT}\{file.name}').duration
+    duration = VideoFileClip(f'{settings.MEDIA_ROOT}\{file}').duration
     return duration
