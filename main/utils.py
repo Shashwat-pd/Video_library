@@ -5,6 +5,9 @@ from django.conf import settings
 allowed_extension = ['mp4','mkv']
 
 def validators(file_name,duration,size, extension):
+    """
+    validator function to check if file is valid or not.
+    """
     if extension not in allowed_extension:
         return [False, 'Invalid file type']
     if duration > 10*60:
