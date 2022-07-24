@@ -13,5 +13,3 @@ class Video(models.Model):
     def __str__(self):
         return self.file.name
 
-class TemproraryFile(models.Model):
-    file = models.FileField(null=True, blank=True)

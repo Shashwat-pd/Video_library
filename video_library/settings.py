@@ -83,7 +83,11 @@ DATABASES = {
     }
 }
 
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
