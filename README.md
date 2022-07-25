@@ -70,20 +70,14 @@ Your machine has to have Python installed.
    git clone https://github.com/shashwat-pd/Video_library.git
    ```
 2. Activate virtual environment (Optional). </br>
-    Make sure you are in the Base Directory in the terminal
+    Make sure you are in the Base Directory.
+    ```sh
+    cd Video_library
+    ```
     ```sh
     pipenv shell
     ```
-2. Install Django
-    The system might installed packages in pipfile depending on OS.
-   ```sh
-   pipenv install django
-   ```
-      OR
-   ```sh
-    pip install django
-    ```
-   if required packages are not installed
+2. Install Packages
     ```sh
     pipenv install -r requirements.txt
     ```
